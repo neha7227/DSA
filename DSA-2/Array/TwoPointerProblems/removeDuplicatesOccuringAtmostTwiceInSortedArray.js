@@ -36,6 +36,7 @@ Constraints
 
 */
 function removeDuplicatesFromSortedArrayII(nums) {
+  /*
   let n = nums.length;
   //1. set val=0, j=0, count=0
   let val = 0,
@@ -69,6 +70,30 @@ function removeDuplicatesFromSortedArrayII(nums) {
   // return j
   return j;
   //   return { newLength: j, newArr: nums }; // if we need to return length and updated array
+  */
+
+  let n = nums.length;
+  // set occurences pointer and counter pointer
+  let counter = 0,
+    j = 0,
+    val = 0;
+
+  for (let i = 0; i < n; i++) {
+    val = nums[i];
+    counter = 0;
+
+    while (i < n && nums[i] === val) {
+      counter++;
+      i++;
+    }
+
+    if (counter > 0) {
+      nums[j] = val;
+      j++;
+      counter--;
+    }
+  }
+  return { newLength: j, newArr: nums };
 }
 
 let nums = [2, 2, 2, 2, 3, 4, 4, 9];

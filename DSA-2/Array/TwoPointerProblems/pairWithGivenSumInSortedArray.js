@@ -47,19 +47,30 @@ function twoSumInSortedArray(n, arr, target_sum) {
   */
 
   // Two pointer Approach
+  // let p1 = 0,
+  //   sum = 0,
+  //   p2 = n - 1;
+  // while (p1 < p2) {
+  //   sum = arr[p1] + arr[p2];
+  //   if (sum === target_sum) return true;
+  //   else if (sum > target_sum) p2--;
+  //   else p1++;
+  // }
+  // return false;
+
+  let k = target_sum;
   let p1 = 0,
-    sum = 0,
     p2 = n - 1;
   while (p1 < p2) {
-    sum = arr[p1] + arr[p2];
-    if (sum === target_sum) return true;
-    else if (sum > target_sum) p2--;
-    else p1++;
+    if (arr[p1] + arr[p2] === k) return true;
+    else if (arr[p1] + arr[p2] > k) {
+      p2--;
+    } else p1++;
   }
   return false;
 }
 
 let n = 5,
-  arr = [2, 5, 6, 8, 9],
+  arr = [2, 4, 6, 8, 9],
   target_sum = 7;
 console.log(twoSumInSortedArray(n, arr, target_sum));

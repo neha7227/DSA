@@ -83,6 +83,18 @@ function mergeIntervals(intervals) {
     else result.push(curr);
   }
   return result;
+
+  // let n = intervals.length;
+  // let merged = [];
+  // merged.push(intervals[0]);
+  // for (let i = 1; i < n; i++) {
+  //   let curr = intervals[i];
+  //   let prev = merged[merged.length - 1];
+  //   if (curr[0] <= prev[1]) {
+  //     prev[1] = Math.max(prev[1], curr[1]);
+  //   } else merged.push(curr);
+  // }
+  // return merged;
 }
 
 let intervals = [

@@ -36,10 +36,8 @@ So, only 2 rooms are required if total for the 3 meetings.
 
 */
 function meetingRooms(meetings) {
-  let n = meetings.length;
-
   /*
-  
+  let n = meetings.length;
   let rooms = 1;
   let maxRooms = 1;
   let i = 1;
@@ -66,19 +64,23 @@ function meetingRooms(meetings) {
   }
   return maxRooms;
   */
+
+  /*
   //Approach 2: Cumulative sum
   //Time Complexity: O(n*log(n))
   //Auxiliary Space: O(n)
+  let n = meetings.length;
   //1. create vector to store startTime, endTime, +1(Meeting started), -1(meeting Ended) ==> [[startTime,+1], [endTime, -1]]
   let meetingDetails = [];
   //2. Run loop from i=0 to meetings.length-1, updating meetingDetails = [[startTime,+1], [endTime, -1]] all pairs in meetings
   for (let i = 0; i < n; i++) {
-    meetingDetails.push([meetings[i][0], 1]);
-    meetingDetails.push([meetings[i][1], -1]);
+    meetingDetails.push([meetings[i][0], 1]); // startTime
+    meetingDetails.push([meetings[i][1], -1]); //endTime
     // meetingDetails.push([meetings[i][1]+1, -1]); // In case if condition given in question that if startTime==endTime of next meeting, then cannot have meeting in same room.
   }
   // 3. sort meetingDetails wrt startTime i.e 0th sub-index of each index in array of array(2D array)
   meetingDetails.sort((a, b) => a[0] - b[0]); // sort acc to start time
+  console.log(meetingDetails, "meetingDetails");
   //4. define meetingInProgress, minRooms to 0;
   let meetingInProgress = 0;
   let minRooms = 0;
@@ -94,6 +96,24 @@ function meetingRooms(meetings) {
   //   console.log(meetingInProgress, "meetingInProgress");
   //   console.log(meetings, "meetings");
   //6. return minRooms
+  return minRooms;
+
+  */
+  let n = meetings.length;
+  let meetingDetails = []; //vector = [startime,+1],[endTime,-1]
+  for (let i = 0; i < n; i++) {
+    meetingDetails.push([meetings[i][0], 1]);
+    meetingDetails.push([meetings[i][1], -1]);
+  }
+  // console.log(meetingDetails, "meetingDetails");
+  meetingDetails.sort((a, b) => a[0] - b[0]); // based on start time
+  let meetingInProgress = 0;
+  let minRooms = 0;
+  for (let i = 0; i < meetingDetails.length; i++) {
+    meetingInProgress += meetingDetails[i][1];
+    minRooms = Math.max(minRooms, meetingInProgress);
+  }
+
   return minRooms;
 }
 

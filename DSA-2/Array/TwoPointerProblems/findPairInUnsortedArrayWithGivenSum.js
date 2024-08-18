@@ -53,8 +53,7 @@ function twoSum(nums, target) {
   //2. run loop 0 -> n-1
   for (let i = 0; i < n; i++) {
     // TC: O(n)
-    //i. add hashmap key-value pair as array-index
-    numIndices.set(nums[i], i);
+
     //ii. defined complement number for given target
     let complement = target - nums[i];
     //iii. check if hashmap has complement
@@ -66,7 +65,8 @@ function twoSum(nums, target) {
       return [complementIndex, i];
     }
 
-    // numIndices.set(nums[i], i);
+    //iv. add hashmap key-value pair as array-index
+    numIndices.set(nums[i], i); //This ensures that you are not using the same element twice, and it correctly identifies pairs even if they are the same number.
     // console.log(numIndices, "numIndices");
   }
   return [0, 0];

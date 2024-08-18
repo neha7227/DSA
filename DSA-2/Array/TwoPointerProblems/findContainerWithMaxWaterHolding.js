@@ -55,6 +55,22 @@ function maxArea(height) {
     }
   }
   return maxArea;
+
+  // let n = height.length;
+  // let mA = 0;
+  // let l = 0,
+  //   r = n - 1;
+  // for (let i = 0; i < n; i++) {
+  //   while (l < r) {
+  //     let len = r - l;
+  //     A = len * Math.min(height[l], height[r]);
+  //     mA = Math.max(mA, A);
+  //     if (height[l] < height[r]) {
+  //       l++;
+  //     } else r--;
+  //   }
+  // }
+  // return mA;
 }
 
 let height = [1, 8, 6, 2, 5, 4, 8, 3, 7];

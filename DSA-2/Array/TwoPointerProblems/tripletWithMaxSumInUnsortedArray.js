@@ -50,7 +50,7 @@ function maxSumTriplet(nums) {
   //   let leftMaxNum = 0;
   //   let rightMaxNum = 0;
   //1. loop over array with mid pointer mid=1 to n-2
-  for (let mid = 0; mid < n - 1; mid++) {
+  for (let mid = 1; mid <= n - 2; mid++) {
     //i. loop over remaining left array left=0 to m-1
     leftMaxNum = 0;
     for (let left = 0; left < mid; left++) {
@@ -77,6 +77,6 @@ function maxSumTriplet(nums) {
 }
 
 // let nums = [5, 2, 4, 5];
-// let nums = [3, 7, 4, 2, 5, 7, 5];
-let nums = [3, 2, 1];
+let nums = [3, 7, 4, 2, 5, 7, 5];
+// let nums = [3, 2, 1];
 console.log(maxSumTriplet(nums));
