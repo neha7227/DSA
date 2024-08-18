@@ -12,9 +12,9 @@ let temp = arr[minIndex];
 2. TC: O(N^2)
 
 */
-const selectionSort=(arr,n)=>{
+const selectionSort=(arr,n)=>{ // Selection of minimum swap to front(left)
 //1.loop from i= 0 to n-2
-for(let i=0; i<=n-2; i++){
+for(let i=0; i<=n-2; i++){ // n-2 steps needed to sort the array as last element will be already sorted till loop completes
   //1.1 initialize minIndex = i  
     let minIndex = i;
  //1.2 inner loop from j=i to n-1 to find minIndex
@@ -43,7 +43,7 @@ step2 0->n-2(i)
 step3 0-> n-3(i)
 .
 .
-stepnth 0->1
+step-nth 0->1
 no. of iteration => outer loop i=n-1 to i>=1
 inner loop j=0 to j<=i
 TC = O(N^2) Average case
