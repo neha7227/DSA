@@ -53,20 +53,24 @@ function validAnagram(s, t) {
   for (let i = 0; i < s.length; i++) {
     charCount[s[i]] = (charCount[s[i]] || 0) + 1;
   }
-  //console.log(charCount, "charCount");
+  console.log(charCount, "charCount");
 
   for (let i = 0; i < t.length; i++) {
     if (!charCount[t[i]]) return "False";
     else charCount[t[i]]--;
   }
+  console.log(charCount, "charCount");
 
-  for (let count of Object.values(charCount)) {
-    // console.log(count, "count");
-    if (count !== 0) return "False";
-    else return "True";
-  }
+  // for (let count of Object.values(charCount)) {
+  //   console.log(count, "count");
+  //   if (count !== 0) return "False";
+  //   else return "True";
+  // }
+  return "True";
 }
-
-let s = "anagram1";
-let t = "gramana2";
+// console.log(Object.values(charCount), "Object.values(charCount)");
+// let s = "anagram1";
+// let t = "gramana2";
+let s = "cat1";
+let t = "tac1";
 console.log(validAnagram(s, t));
